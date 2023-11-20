@@ -43,7 +43,8 @@ public class ReqrestTest {
       List<String>avatarsListStream = users.stream().map(UserData::getAvatar).collect(Collectors.toList());
       List<String> ids = users.stream().map(x->x.getAvatar().toString()).collect(Collectors.toList());
         for (int i = 0; i <avatarsListStream.size() ; i++) {
-            Assert.assertTrue(avatarsListStream.get(i).contains(ids.get(i)));
+             Assert.assertTrue(avatarsListStream.get(i).contains(ids.get(i)));
+             Assert.assertTrue(avatarsListStream.get(i).contains(ids.get(i)));
         }
     }
     @DisplayName("2 test")

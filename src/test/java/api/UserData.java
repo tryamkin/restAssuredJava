@@ -54,7 +54,7 @@ public class UserData {
         return last_name;
     }
 
-    public String getAvatar() {
+     public String getAvatar() {
         return avatar;
     }
 }
