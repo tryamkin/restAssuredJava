@@ -1,11 +1,8 @@
 package api;
-
 import io.restassured.http.ContentType;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.*;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,8 +56,6 @@ public class ReqrestTest {
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
         Assert.assertTrue(users.stream().allMatch(x->x.getAvatar().contains(x.getId().toString())));
-
-
     }
 
 //    @org.junit.jupiter.api.Test
@@ -94,6 +89,4 @@ public class ReqrestTest {
 //            Assertions.assertTrue(realPeopleAvatars.get(i).contains(realPeopleIds.get(i)));
 //        }
 //    }
-
-
 }
