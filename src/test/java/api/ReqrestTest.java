@@ -59,7 +59,7 @@ public class ReqrestTest {
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
         Assert.assertTrue(users.stream().allMatch(x->x.getAvatar().contains(x.getId().toString())));
-        Assert.assertTrue(users.stream().allMatch(x->x.getAvatar().contains(x.getId().toString())));
+
 
     }
 
