@@ -47,7 +47,7 @@ public class ReqrestTest {
              Assert.assertTrue(avatarsListStream.get(i).contains(ids.get(i)));
         }
     }
-    @Ignore
+
     @DisplayName("2 test")
     @Test()
     public void checkAvatarIdTestUseSpec () {
