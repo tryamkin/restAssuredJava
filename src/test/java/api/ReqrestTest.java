@@ -31,7 +31,6 @@ public class ReqrestTest {
         //проверка что все поля почты заканчиваються на @reqres.in
         Assert.assertTrue(users.stream().allMatch(x->x.getEmail().contains("@reqres.in")));
         users.stream().forEach(x->Assert.assertTrue(x.getEmail().contains("@reqres.in"))); // my
-
        //Достать только аватарки и загнать их в лист
         List<String> avatars = new ArrayList<>();
             for (UserData user : users) {
