@@ -48,8 +48,8 @@ public class ReqrestTest {
         }
     }
 
-    @DisplayName("2 test")
-      @Test()
+    @DisplayName("2 2 test")
+    @Test()
     public void checkAvatarIdTestUseSpec () {
         //вызываем методы класса Specifications !!! Magic here!!!
         Specification.installSpec(Specification.requestSpec(url),Specification.responseSpecOk200());
