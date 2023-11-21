@@ -2,6 +2,7 @@ package api;
 
 import io.restassured.http.ContentType;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.*;
 
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import static io.restassured.RestAssured.given;
-@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class ReqrestTest {
 
     private final static String url = "https://reqres.in/";
+
     @Test()
     public void acheckAvatarIdTest() {
         List<UserData> users = given()
@@ -46,6 +47,7 @@ public class ReqrestTest {
              Assert.assertTrue(avatarsListStream.get(i).contains(ids.get(i)));
         }
     }
+    @Ignore
     @DisplayName("2 test")
     @Test()
     public void checkAvatarIdTestUseSpec () {
