@@ -49,7 +49,7 @@ public class ReqrestTest {
     }
 
     @DisplayName("2 test")
-    @Test()
+      @Test()
     public void checkAvatarIdTestUseSpec () {
         //вызываем методы класса Specifications !!! Magic here!!!
         Specification.installSpec(Specification.requestSpec(url),Specification.responseSpecOk200());
@@ -59,6 +59,7 @@ public class ReqrestTest {
                 .then().log().all()
                 .extract().body().jsonPath().getList("data", UserData.class);
         Assert.assertTrue(users.stream().allMatch(x->x.getAvatar().contains(x.getId().toString())));
+
 
     }
 
