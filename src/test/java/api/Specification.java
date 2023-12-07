@@ -25,6 +25,15 @@ public class Specification {
         return new ResponseSpecBuilder()
                 .expectStatusCode(400)
                 .build();
+    }  public static ResponseSpecification responseSpec404 (){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(404)
+                .build();
+    }
+    public static ResponseSpecification responseSpec405 (){
+        return new ResponseSpecBuilder()
+                .expectStatusCode(405)
+                .build();
     }
 
     public static void installSpec (RequestSpecification request, ResponseSpecification response){
