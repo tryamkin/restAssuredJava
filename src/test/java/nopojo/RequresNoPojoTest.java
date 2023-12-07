@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,12 +61,12 @@ public class RequresNoPojoTest {
         * */
     }
 
-    @Test ()
+    @Test()
     @DisplayName("POST request register user")
         /* {"id": 4,
             "token": "QpwL5tke4Pnpja7X4"
            } */
-    public void successUserRegistrationTest () {
+    public void successUserRegistrationTest() {
         Specification.installSpec(Specification.requestSpec(url), Specification.responseSpecOk200());
         Map<String, String> user = new HashMap<>();
         user.put("email", "eve.holt@reqres.in");
@@ -82,26 +81,26 @@ public class RequresNoPojoTest {
 
     }
 
-    @Test ()
+    @Test()
     @DisplayName("POST request register user")
-    public void successUserRegistrationVer2Test () {
+    public void successUserRegistrationVer2Test() {
         Specification.installSpec(Specification.requestSpec(url), Specification.responseSpecOk200());
         Map<String, String> user = new HashMap<>();
-        user.put ("email", "eve.holt@reqres.in");
-        user.put ("password","pistol");
+        user.put("email", "eve.holt@reqres.in");
+        user.put("password", "pistol");
         Response response =
-        given()
-                .body(user)
-                .when()
-                .post("api/register")
-                .then().log().all()
-                .extract().response();
+                given()
+                        .body(user)
+                        .when()
+                        .post("api/register")
+                        .then().log().all()
+                        .extract().response();
         JsonPath jsonPath = response.jsonPath();
         int id = jsonPath.get("id");
         String token = jsonPath.get("token");
         System.out.println(id + " ----  " + token);
-        Assert.assertEquals(4,id);
-        Assert.assertEquals("QpwL5tke4Pnpja7X4",token);
+        Assert.assertEquals(4, id);
+        Assert.assertEquals("QpwL5tke4Pnpja7X4", token);
 
     }
 
@@ -119,32 +118,33 @@ public class RequresNoPojoTest {
     }
 
     @Test
-    public void unsuccessUserRegistration(){
+    public void unsuccessUserRegistration() {
         Specification.installSpec(Specification.requestSpec(url), Specification.responseSpec400());
         Map<String, String> user = new HashMap<>();
-        user.put("email","sydney@fife");
+        user.put("email", "sydney@fife");
         given()
                 .body(user)
                 .when()
                 .post("api/register")
                 .then().log().all()
-                .body("error",equalTo("Missing password"));
+                .body("error", equalTo("Missing password"));
     }
+
     @Test
-    public void unsuccessUserRegistrationWhithResponse(){
+    public void unsuccessUserRegistrationWhithResponse() {
         Specification.installSpec(Specification.requestSpec(url), Specification.responseSpec400());
         Map<String, String> user = new HashMap<>();
-        user.put("email","sydney@fife");
+        user.put("email", "sydney@fife");
         Response response =
-        given()
-                .body(user)
-                .when()
-                .post("api/register")
-                .then().log().all()
-                .extract().response();
+                given()
+                        .body(user)
+                        .when()
+                        .post("api/register")
+                        .then().log().all()
+                        .extract().response();
         JsonPath jsonPath = response.jsonPath();
-        System.out.println(" ' " +  jsonPath.get("error")+ " ' " + " - sout jsonPath");
+        System.out.println(" ' " + jsonPath.get("error") + " ' " + " - sout jsonPath");
         String error = jsonPath.get("error");
-        Assert.assertEquals("Missing password",error);
+        Assert.assertEquals("Missing password", error);
     }
 }
