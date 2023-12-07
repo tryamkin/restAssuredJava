@@ -1,4 +1,4 @@
-package nopojo;
+package pai.ItFriendlyHomeWork;
 import api.Specification;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
