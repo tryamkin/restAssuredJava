@@ -2,7 +2,6 @@ package api;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
@@ -31,5 +30,12 @@ public class Specification {
     public static void installSpec (RequestSpecification request, ResponseSpecification response){
         RestAssured.requestSpecification = request;
         RestAssured.responseSpecification = response;
+    }
+
+    public static void installSpecification(RequestSpecification requestSpec){
+        RestAssured.requestSpecification =requestSpec;
+    }
+    public static void installSpecification(ResponseSpecification responseSpec){
+        RestAssured.responseSpecification =responseSpec;
     }
 }

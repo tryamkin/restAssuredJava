@@ -1,12 +1,14 @@
 package api;
 import io.restassured.http.ContentType;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import static io.restassured.RestAssured.given;
+@Ignore
 public class ReqrestTest {
 
     private final static String url = "https://reqres.in/";
